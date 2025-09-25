@@ -31,7 +31,7 @@ app.use('/Chats/Images', express.static(path.join(__dirname, 'public/Chats/Image
 app.use('/Chats/Videos', express.static(path.join(__dirname, 'public/Chats/Videos')));
 app.use(express.urlencoded({extended:true}));
 async function serverRefresh(){
-    const refresh=await fetch(`http://localhost:3000`,{
+    const refresh=await fetch(`https://socialsphere-backend-i5l1.onrender.com/`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json"
