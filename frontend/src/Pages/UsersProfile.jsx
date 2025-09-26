@@ -508,16 +508,16 @@ const setDateInString=(date)=>{
                 </div>}</>) :
                <div className='flex flex-col  h-[30vh] w-full justify-center items-center'>
                   <div className='flex flex-row gap-2'>
-                    <FacebookShareButton url={`http://localhost:5173/post/${ele._id}`}>
+                    <FacebookShareButton url={`https://socialsphere-tga0.onrender.com/post/${ele._id}`}>
                       <FacebookIcon className='w-[50px] h-[50px] rounded'/>
                     </FacebookShareButton>
-                    <WhatsappShareButton url={`http://localhost:5173/post/${ele._id}`}>
+                    <WhatsappShareButton url={`https://socialsphere-tga0.onrender.com/post/${ele._id}`}>
                       <WhatsappIcon className='w-[50px] h-[50px] rounded'/>
                     </WhatsappShareButton>
-                    <TwitterShareButton url={`http://localhost:5173/post/${ele._id}`} >
+                    <TwitterShareButton url={`https://socialsphere-tga0.onrender.com/post/${ele._id}`} >
                       <TwitterIcon className='w-[50px] h-[50px] rounded'/>
                     </TwitterShareButton>
-                    <TelegramShareButton url={`http://localhost:5173/post/${ele._id}`}>
+                    <TelegramShareButton url={`https://socialsphere-tga0.onrender.com/post/${ele._id}`}>
                       <TelegramIcon className='w-[50px] h-[50px] rounded'/>
                     </TelegramShareButton>
                   </div>
