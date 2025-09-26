@@ -52,10 +52,10 @@ function Login() {
        <div className='flex flex-col gap-4 justify-center w-3xs   self-center justify-self-center sm:w-5xl '>
           <h1 className='font-bold font-mono text-center text-5xl md:text-7xl text-emerald-400 '>Login</h1>
           <div className='flex justify-center'>
-            <input type='text' placeholder='Enter Your Email or Username' required name="emailOrusername" value={inputs.emailOrusername} onChange={handleChange} className='w-64 sm:w-96 h-10 xl:h-11 xl:text-xl  text-lg border-1 rounded pl-4'/>
+            <input type='text' placeholder='Enter Your Email or Username' required name="emailOrusername" value={inputs.emailOrusername} onChange={handleChange} className='w-64 sm:w-96 h-10 xl:h-11 xl:text-xl  text-[1rem] border-1 rounded pl-4'/>
           </div>
            <div className='flex justify-center'>
-            <input type='password' placeholder='Enter Your Password' name="password" value={inputs.password} required onChange={handleChange} className='w-64 sm:w-96 h-10 xl:h-11 xl:text-xl text-lg border-1 rounded pl-4'/>
+            <input type='password' placeholder='Enter Your Password' name="password" value={inputs.password} required onChange={handleChange} className='w-64 sm:w-96 h-10 xl:h-11 xl:text-xl text-[1rem] border-1 rounded pl-4'/>
           </div>
           <div className='flex justify-center'>
            <NavLink to='/resetpassword' ><p className='text-lg md:text-2xl text-blue-400'>Forgot Password?</p></NavLink>
