@@ -2,27 +2,49 @@ const {Router}=require("express");
 const { userAuthenticated } = require("../middlewares/authentication");
 const {getMyFollowingUsers,saveMessage,getMessages,getRecentChats,deleteTextMsg,createTokenForvideoCall}=require("../controllers/chats");
 const multer=require("multer");
+const cloudinary=require("cloudinary").v2;
+const {CloudinaryStorage}=require("multer-storage-cloudinary")
 const path=require("path")
 const router=Router();
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-  const isImage=file.mimetype.startsWith("image");
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//   const isImage=file.mimetype.startsWith("image");
   
-    const folder=isImage? "./public/Chats/Images" : "./public/Chats/Videos";
-    cb(null,path.join(__dirname,"..",folder));
-  },
-  filename: function (req, file, cb) {
-    const ext = file.originalname.split('.').pop();
+//     const folder=isImage? "./public/Chats/Images" : "./public/Chats/Videos";
+//     cb(null,path.join(__dirname,"..",folder));
+//   },
+//   filename: function (req, file, cb) {
+//     const ext = file.originalname.split('.').pop();
+//     const filtername=file.originalname.replace(/\.[^/.]+$/, "")        
+//     .replace(/[^\w\s-]/g, "")      
+//     .trim()
+//     .replace(/\s+/g, "_")            
+//     + "." + ext;
+//     const fileName=`${req.user._id}-${req.body.to}-${req.body.createdAt}-${filtername}`;
+//     cb(null, fileName)
+//   }
+// });
+const storage=new CloudinaryStorage({
+  cloudinary,
+  params:async (req,file)=>{
+  
+     const isImage=file.mimetype.startsWith("image") ? "image":"video";
+     const folder=isImage==="image" ? "Socialsphere/Chats/Images" : "Socialsphere/Chats/Videos";
+     const ext = file.originalname.split('.').pop();
     const filtername=file.originalname.replace(/\.[^/.]+$/, "")        
     .replace(/[^\w\s-]/g, "")      
     .trim()
     .replace(/\s+/g, "_")            
     + "." + ext;
-    const fileName=`${req.user._id}-${req.body.to}-${req.body.createdAt}-${filtername}`;
-    cb(null, fileName)
+    const fileName=`${req.user._id}-${Date.now()}-${filtername}`;
+      
+      return {
+        folder,
+ resource_type: "auto",
+      public_id: fileName, 
+      };
   }
-});
-
+})
 const upload = multer({ storage: storage });
 router.get("/getmyfollowingusers",userAuthenticated,getMyFollowingUsers);
 router.post("/savemessage",userAuthenticated,upload.single("media"),saveMessage);

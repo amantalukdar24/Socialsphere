@@ -8,9 +8,9 @@ function Footer() {
    else setShowFooter(false);
   },[Location.pathname])
   return (
-    <div className={`w-full h-[30vh]  bg-gray-800 flex flex-row  items-center ${showFooter ? "hidden" : ""
+    <div className={`w-full h-[35vh] sm:h-[30vh]  md:h-[40vh] lg:h-[30vh]  bg-gray-800 flex flex-row  items-center ${showFooter ? "hidden" : ""
     }`}>
-    <div className='flex flex-col w-1/3 h-full gap-10 border-r-2 border-r-gray-400 pr-5'>
+    <div className='flex flex-col w-1/3 h-full gap-5 border-r-2 border-r-gray-400 pr-5'>
         <div className='flex flex-col'>
            <div className='flex flex-row w-full  h-15 xl:h-20 font-bold justify-center items-center '>
         <img src="../Images/Logo.png"  className=' w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:h-13 md:w-13'/>

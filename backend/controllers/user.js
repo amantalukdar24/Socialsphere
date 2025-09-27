@@ -186,20 +186,14 @@ const uploadprofilepicture=async (req,res)=>{
     if(req.file.mimetype.startsWith("image"))
     {
        
-       const folder="Socialsphere/Profile_Photo";
+       
        const public_id=req.file.filename;
     
-      const upload=await cloudinary.uploader.upload(req.file.path,{
-        folder,
-        public_id:public_id,
-        resource_type:"image"
-      });
-      const result=await USER.findByIdAndUpdate(req.user._id,{$set:{profile_photo:upload.secure_url,public_id:upload.public_id}});
+     
+      const result=await USER.findByIdAndUpdate(req.user._id,{$set:{profile_photo:req.file.path,public_id:public_id}});
       
       if(result){
-        fs.unlink(req.file.path,(err)=>{
-          if(err) console.log(err);
-        })
+      
       return res.json({success:true,mssg:"Profile Picture Updated"});
       }
       else{
@@ -209,7 +203,7 @@ const uploadprofilepicture=async (req,res)=>{
     return res.status(415).json({success:false,mssg:"Image File Supported"})
     
   } catch (err) {
-    console.log(`${err}`)
+   
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }
@@ -266,7 +260,7 @@ const removeFollowers=async (req,res)=>{
     if(follower && following) return res.status(200).json({success:true});
     else return res.status(404).json({success:false});
   } catch (err) {
-    console.log(`${err}`)
+    
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }

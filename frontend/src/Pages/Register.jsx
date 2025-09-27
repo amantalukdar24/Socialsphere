@@ -66,11 +66,11 @@ const handleSubmit=async (e)=>{
 }
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center gap-10 sm:gap-20  w-screen mt-5 sm:mt-20 sm:30   h-[92vh] sm:h-[90vh] md:h-[85vh] xl:h-[80vh]   ">
-       <div className='flex justify-center h-50 sm:h-96' >
-          <img src="../Images/image.png" alt="Failed to load" />
+    <div className="flex flex-col sm:flex-row md:justify-center gap-1 sm:gap-20  w-screen     h-[100vh]   ">
+       <div className='flex justify-center ' >
+          <img src="../Images/image.png" alt="Failed to load" className='sm:h-[500px] sm:lg:w-[500px]'/>
        </div>
-       <div className='flex flex-col gap-4 justify-center w-3xs self-center justify-self-center sm:w-5xl '>
+       <div className='flex flex-col gap-2 md:gap-3 justify-center w-3xs self-center justify-self-center sm:w-5xl '>
           <h1 className='font-bold font-mono text-center text-5xl md:text-7xl text-emerald-400 '>Register</h1>
           <div className='flex justify-center'>
             <input type='text' placeholder='Enter Your Name' required className='w-64 sm:w-96 h-10 xl:h-11 xl:text-xl border-1 rounded pl-4' value={inputs.name} name="name" onChange={handleChange}/>

@@ -43,7 +43,7 @@ const getMyFollowingUsers=async (req,res)=>{
         
     } catch (err) {
         
-         return res.status(500).json({success:false,mssg:`${err}`});
+         return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }
 const saveMessage=async (req,res)=>{
@@ -60,22 +60,16 @@ const saveMessage=async (req,res)=>{
       
      if(req.file!=null || req.file!=undefined){
         const isImage=req.file.mimetype.startsWith("image") ? "image" : "video";
-        const folder=isImage==="image" ? "Socialsphere/Chats/Images" : "Socialsphere/Chats/Videos";
+    
        const public_id=req.file.filename;
-  const upload=await cloudinary.uploader.upload(req.file.path,{
-         folder,
-         resource_type:isImage,
-         public_id:public_id,
-        });
+
          mediapath={
 
             fileType:isImage,
-            filePath:upload.secure_url,
-            public_id:upload.public_id
+            filePath:req.file.path,
+            public_id:public_id
         };
-        fs.unlink(req.file.path,(err)=>{
-            if(err) console.log(err);
-        })
+       
     }
        const result=await CHATS.create({
             from:req.user._id,

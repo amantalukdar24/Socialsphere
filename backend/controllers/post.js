@@ -23,9 +23,7 @@ const uploadPost = async (req, res) => {
     for (let file of req.files) {
       if (file.size > 100 * 1024 * 1024) {
         
-         fs.unlink(file.path,((err)=>{
-          if(err) console.log(`${err}`)
-        }));
+     
         return res
           .status(413)
           .json({ success: false, mssg: `${file.originalname} - File size exceeded 100MB` });
@@ -33,36 +31,15 @@ const uploadPost = async (req, res) => {
 
       if (file.mimetype.startsWith("image") || file.mimetype.startsWith("video")) {
         const resourceType = file.mimetype.startsWith("image") ? "image" : "video";
-        const folder =
-          resourceType === "image"
-            ? "Socialsphere/Posts/Images"
-            : "Socialsphere/Posts/Videos";
-
-        const baseName = file.originalname.split(".")[0].replace(/\s+/g, "_");
-        const publicId = `${req.user._id}-${Date.now()}-${baseName}`;
-
-        let uploadResult;
-        
-          uploadResult = await cloudinary.uploader.upload(file.path, {
-            folder,
-            public_id: publicId,
-            resource_type: "auto",
-          });
-  fs.unlink(file.path,((err)=>{
-          if(err) console.log(`${err}`)
-        }));
-
+  
         media.push({
           fileName: file.originalname,
           fileType: resourceType,
-          filePath: uploadResult.secure_url, 
-          public_id: uploadResult.public_id,
+          filePath: file.path, 
+          public_id: file.filename,
           postNo: postNo++,
         });
-      } else {
-           fs.unlink(file.path,((err)=>{
-          if(err) console.log(`${err}`)
-        }));
+      
         return res.status(415).json({
           success: false,
           mssg: `${file.originalname}: File Unsupported`,

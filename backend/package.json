@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node --no-deprecation app.js"
+    "start": "nodemon --no-deprecation app.js"
   },
   "author": "",
   "license": "ISC",

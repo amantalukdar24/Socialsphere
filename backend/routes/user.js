@@ -2,32 +2,43 @@ const express=require('express');
 const router=express.Router();
 const multer=require('multer');
 const path=require('path');
-const {createAccount,existingUser,checkUsernameAvailable,generateOtp,verifyotp}=require('../controllers/user.js');
-const {userSchema,passSchema,usernameSchema}=require("../middlewares/validate.js");
-const {userAuthenticated}=require("../middlewares/authentication.js");
-const {getProfileUser,uploadprofilepicture,updateFollowers,removeFollowers}=require('../controllers/user.js');
-const {changeUsername,changePassword,deleteAccount}=require("../controllers/user1.js")
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
- 
-   
-    
-    const folder="./public/Profile_Photo";
-    cb(null,path.join(__dirname,"..",folder));
-  },
-  filename: function (req, file, cb) {
-      const ext = file.originalname.split('.').pop();
+const cloudinary=require("cloudinary").v2;
+const {CloudinaryStorage}=require("multer-storage-cloudinary");
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+const storage=new CloudinaryStorage({
+  cloudinary,
+  params:async (req,file)=>{
+  
+     
+     const folder="Socialsphere/Profile_Photo";
+     const ext = file.originalname.split('.').pop();
     const filtername=file.originalname.replace(/\.[^/.]+$/, "")        
     .replace(/[^\w\s-]/g, "")      
     .trim()
     .replace(/\s+/g, "_")            
     + "." + ext;
     const fileName=`${req.user._id}-${Date.now()}-${filtername}`;
-    cb(null, fileName)
+      
+      return {
+        folder,
+ resource_type: "auto",
+      public_id: fileName, 
+      };
   }
-});
-
+})
 const upload = multer({ storage: storage });
+const {createAccount,existingUser,checkUsernameAvailable,generateOtp,verifyotp}=require('../controllers/user.js');
+const {userSchema,passSchema,usernameSchema}=require("../middlewares/validate.js");
+const {userAuthenticated}=require("../middlewares/authentication.js");
+const {getProfileUser,uploadprofilepicture,updateFollowers,removeFollowers}=require('../controllers/user.js');
+const {changeUsername,changePassword,deleteAccount}=require("../controllers/user1.js")
+
+
+
 router.post('/register',userSchema,createAccount);
 router.post('/login',existingUser);
 router.post('/usernameavailable',checkUsernameAvailable);

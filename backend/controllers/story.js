@@ -12,30 +12,21 @@ cloudinary.config({
 });
 const postStory=async (req,res)=>{
     try {
-         if (req.file.size > 150000000) {
+         if (req.file.size > 100000000) {
     return res.status(413).json({ success: false, mssg: `${ originalname}-File size exceed` });
   }
  
  if(req.file.mimetype.startsWith("image") || req.file.mimetype.startsWith("video")){
     const isImage=req.file.mimetype.startsWith("image") ? "image" : "video";
-    const folder=isImage==="image" ? "Socialsphere/Story/Images" : "Socialsphere/Story/Videos";
-    const public_id=req.file.filename;
-    const upload=await cloudinary.uploader.upload(req.file.path,{
-        folder,
-        resource_type:isImage,
-        public_id:public_id,
-       tags: [`expires:${Date.now() + 1*60*1000}`] 
-    });
-     fs.unlink(req.file.path,(err)=>{
-        console.log(err);
-     });
+    
+ 
         const result=await STORY.create({
             story:{
                 
     fileType: isImage,
    
-    filePath:upload.secure_url,
-    public_id:upload.public_id,
+    filePath:req.file.path,
+    public_id:req.file.filename,
             },
             userId:req.user._id,
         });

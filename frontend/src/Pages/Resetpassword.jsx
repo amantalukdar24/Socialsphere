@@ -84,7 +84,7 @@ function Resetpassword() {
   setIsSubmit(false);
 }
    return (
-    <div className="flex flex-col sm:flex-row justify-center gap-10 sm:gap-20  w-screen mt-10 md:mt-30 sm:30    h-[92vh] sm:h-[88vh] md:h-[85vh] xl:h-[75vh]  ">
+    <div className="flex flex-col sm:flex-row md:justify-center gap-2 sm:gap-20  w-screen mt-5      h-[100vh]  ">
        <div className='flex justify-center ' >
           <img src="../Images/image.png" className='sm:h-[500px] sm:lg:w-[500px]' alt="Failed to load" />
        </div>

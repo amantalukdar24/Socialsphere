@@ -65,9 +65,7 @@ function Chats() {
       if(data.success){
         setRecentChats(data.results);
       }
-      else toast.error("Failed to Load Chats",{
-        position:"top-center",autoClose:5000,theme:"dark"
-      });
+    
 
     }
   useEffect(()=>{
