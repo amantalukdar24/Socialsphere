@@ -121,9 +121,9 @@ function Create() {
         
           return (
             <div key={index} className="relative w-[250px]  md:w-[300px]  border-4 rounded-2xl mt-5 mb-5">
-              {isImage && <img src={src} alt="" className="object-fit w-[250px] h-[100px] md:w-[300px] md:h-[200px] rounded-xl" />}
+              {isImage && <img src={src} alt="" className="object-contain w-[250px] h-[100px] md:w-[300px] md:h-[200px] rounded-xl" />}
               {isVideo && (
-                <video src={src} controls   className="object-fit w-[250px] h-[100px] md:w-[300px] md:h-[200px]  rounded-xl" />
+                <video src={src} controls   className="object-contain w-[250px] h-[100px] md:w-[300px] md:h-[200px]  rounded-xl" />
               )}
               <button
                 onClick={() => handleRemove(index)}

@@ -114,20 +114,20 @@ else return;
 }
   return (
     <div className='relative w-full h-[100vh] flex flex-col justify-center  items-center'>
-      <div className='w-[90vw] md:w-[60vw]  lg:w-[60vw]   bg-gray-800 rounded-4xl h-[65vh]   shadow-2xl shadow-black'>
+      <div className='w-[90vw] md:w-[60vw]  lg:w-[60vw]   bg-gray-800 rounded-4xl h-[70vh]   shadow-2xl shadow-black'>
        <div className='flex flex-row justify-center items-center border-b-2 border-amber-50 '>
         <h1 className='text-[2rem] font-[roboto] tracking-[2px] text-orange-500'>Settings</h1>
        </div>
        <div className='flex flex-col w-full gap-10 mt-4   rounded-[5px]'>
      { !activateAccountCenter && 
        (<> <div className='w-full flex flex-col gap-2 bg-amber-50 p-2 cursor-pointer' onClick={()=>{setActivateAccountCenter(true)}}>
-         <h1 className='text-[1.5rem] font-[Arial] '>Account Center</h1>
-         <p>Change Username And Password,Delete Account</p>
+         <h1 className='text-[1rem] sm:text-[1.3rem] font-[Arial] '>Account Center</h1>
+         <p className='text-[0.8rem] sm:text-[1.1rem]'>Change Username And Password,Delete Account</p>
 
         </div>
          <div className='w-full h-[10vh] flex flex-row justify-between items-center p-2 bg-amber-50'>
-         <h1 className='text-[1.5rem] font-[Arial] '>Exit from this device</h1>
-        <button className='text-[1.5rem] w-[15vh] h-[5vh] rounded-2xl font-[sans] bg-[tomato]' onClick={()=>{localStorage.removeItem('token'); Dispatch(logout());}}>Logout</button>
+         <h1 className='text-[1rem] sm:text-[1.3rem] font-[Arial] '>Exit from this device</h1>
+        <button className='text-[1rem] sm:text-[1.2rem] w-[30vw] sm:w-[15vw] h-[5vh] rounded-2xl font-[sans] bg-[tomato]' onClick={()=>{localStorage.removeItem('token'); Dispatch(logout());}}>Logout</button>
 
         </div>
         </>)

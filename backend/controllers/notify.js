@@ -6,6 +6,7 @@ const postNotify=async (req,res)=>{
     const result=await NOTIFY.create({
         type,
         userId:userId,
+        actorId:req.user._id,
         username,
         urlId
     });
@@ -24,12 +25,12 @@ const getAllNotify=async (req,res)=>{
              {
     $lookup: {
       from: "users",
-      localField: "userId",
+      localField: "actorId",
       foreignField: "_id",
-      as: "user"
+      as: "actor"
     }
   },
-  { $unwind: "$user" },
+  { $unwind: "$actor" },
  
             {
             $group:{
@@ -38,7 +39,7 @@ const getAllNotify=async (req,res)=>{
                     $push:{
                         _id:"$_id",
                         type:"$type",
-                        user: { username: "$user.username", profile_photo: "$user.profile_photo" },
+                        user: { username: "$actor.username", profile_photo: "$actor.profile_photo" },
                         urlId:"$urlId",
                         createdAt:"$createdAt"
                     }
@@ -52,7 +53,7 @@ const getAllNotify=async (req,res)=>{
   }
 
         }]);
-       
+      
    if(notifys.length>0)  return res.status(200).json({success:true,notifys});
    else return res.status(400).json({success:false});
     } catch (err) {

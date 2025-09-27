@@ -21,7 +21,7 @@ function Notify() {
       }
       getNotify();
     },[socket.id]);
- 
+ console.log(allNotify)
 const setDateInString=(date)=>{
     const todaysDate=new Date();
     const customDate=new Date(date);

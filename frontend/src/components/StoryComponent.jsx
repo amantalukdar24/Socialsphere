@@ -156,8 +156,8 @@ const deleteStory=async (storyId,index)=>{
 
 
   return (
-    <div className='relative w-full  flex justify-center h-[100vh] '>
-      <div className=' w-full max-w-[400px] md:w-[70vw] lg:w-[30vw] h-[90vh] pt-2'>
+    <div className='relative w-full  flex  sm:justify-center h-[100vh] '>
+      <div className={`${userId === stories[0]?.userId ? "w-[85vw]":"w-full"}  max-w-[400px] md:w-[70vw] lg:w-[30vw] h-[90vh] pt-2`}>
    { stories.length>0 &&  <Stories stories={stories}
    defaultInterval={15000} keyboardNavigation={true} 
    storyContainerStyles={{borderRadius:"10px"}}
@@ -172,7 +172,7 @@ const deleteStory=async (storyId,index)=>{
    
    />}
 
-  { userId === stories[0]?.userId &&   <div className='absolute top-10 right-5 flex justify-center items-center z-20'>{
+  { userId === stories[0]?.userId &&   <div className='absolute top-10 right-1 sm:right-5 flex justify-center items-center z-20'>{
    
       <button  onClick={(e)=>{e.stopPropagation();console.log(stories[currentStoryIndex]); deleteStory(stories[currentStoryIndex]._id,currentStoryIndex);}}><img src="/Images/delete.png" className='w-[40px] h-[40px]'/></button>
  

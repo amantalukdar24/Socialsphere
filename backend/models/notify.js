@@ -10,6 +10,9 @@ const notifySchema=new Schema({
         ref:"user",
         required:true,
     },
+    actorId: { type: Schema.Types.ObjectId, ref: "user", required: true },
+
+
     username:{
         type:String,
         required:true,
