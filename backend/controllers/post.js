@@ -39,12 +39,12 @@ const uploadPost = async (req, res) => {
           public_id: file.filename,
           postNo: postNo++,
         });
-      
-        return res.status(415).json({
+      }      
+      else  return res.status(415).json({
           success: false,
           mssg: `${file.originalname}: File Unsupported`,
         });
-      }
+      
     }
 
     const result = await POST.create({
