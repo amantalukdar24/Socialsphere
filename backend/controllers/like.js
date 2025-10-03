@@ -21,7 +21,7 @@ const likedPost=async (req,res)=>{
     else return res.status(404).json({success:false});
    }
    catch(err){
-    
+    console.log(`${err}`);
      return res.status(500).json({success:false,mssg:`Internal Server Error`});
    }
 }
@@ -33,7 +33,7 @@ const removeLikedPost=async (req,res)=>{
         if(removedLike) return res.status(200).json({success:true});
         else return res.status(404).json({success:false});
     } catch (err) {
-      
+      console.log(`${err}`);
           return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }

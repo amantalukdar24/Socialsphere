@@ -217,7 +217,7 @@ const handelJoinVideoCall=()=>{
   return (
     <div  className='w-full relative  flex flex-col '>
         <div className='relative flex flex-row justify-start  items-center  w-full p-1 bg-gray-800 rounded-xl gap-10'>
-         <button className='w-[5vw] h-[8vh] text-4xl' onClick={()=>{setActiveChatPage(false)}}>⬅️</button>
+         <button className='w-[5vw] h-[8vh] text-2xl sm:text-4xl' onClick={()=>{setActiveChatPage(false)}}>⬅️</button>
   <NavLink to={`/${senderId.username}`} >   <div className='flex flex-row justify-center items-center gap-5'  >
         <img src={senderId.profile_photo} className='w-[50px] sm:w-[80px] h-[50px] sm:h-[80px] rounded-full'/>
         <h1 className='text-xl sm:text-2xl text-orange-600'>{senderId.username}</h1>

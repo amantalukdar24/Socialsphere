@@ -13,6 +13,7 @@ const getUsers=async (req,res)=>{
     
   
     } catch (err) {
+      console.log(`${err}`);
       return res.json({success:false,mssg:`Internal Server Error`});
     }
   }
@@ -47,7 +48,7 @@ const getUsers=async (req,res)=>{
       }
     }
     catch(err){
-        
+        console.log(`${err}`);
            return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
   }

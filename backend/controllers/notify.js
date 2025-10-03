@@ -15,6 +15,7 @@ const postNotify=async (req,res)=>{
     else return res.status(400).json({success:false});
     
  } catch (err) {
+  console.log(`${err}`);
     return res.status(500).json({success:false,mssg:"Internal Server Error"});
  }
 }

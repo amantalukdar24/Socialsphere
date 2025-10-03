@@ -34,6 +34,7 @@ const createAccount = async (req, res) => {
       return res.status(500).json({ success: false, mssg: 'Internal Server Error' ,token:null});
     }
   } catch (err) {
+    console.log(`${err}`);
     return res.status(500).json({ success: false, mssg: `Internal Server Error` ,token:null});
   }
 };
@@ -61,6 +62,7 @@ const existingUser=async (req,res)=>{
 
     }
     catch(err){
+      console.log(`${err}`);
  return res.status(500).json({ success: false, mssg: `Internal Server Error` });
     }
 }
@@ -74,6 +76,7 @@ const checkUsernameAvailable=async (req,res)=>{
          return res.status(200).json({success:true,Mssg:"Username Available"});
   }
   catch(err){
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 };
@@ -128,6 +131,7 @@ const transporter=nodemailer.createTransport({
     });
      
   } catch (err) {
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }
@@ -160,6 +164,7 @@ const verifyotp=async (req,res)=>{
   }
 }
 catch(err){
+  console.log(`${err}`);
   return res.status(500).json({success:false,mssg:`Internal Server Error`});
 }
 }
@@ -203,7 +208,7 @@ const uploadprofilepicture=async (req,res)=>{
     return res.status(415).json({success:false,mssg:"Image File Supported"})
     
   } catch (err) {
-   
+   console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }
@@ -231,7 +236,7 @@ const updateFollowers=async (req,res)=>{
     if(follower && following) return res.status(200).json({success:true});
     else return res.status(404).json({success:false});
   } catch (err) {
-    
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }
@@ -260,7 +265,7 @@ const removeFollowers=async (req,res)=>{
     if(follower && following) return res.status(200).json({success:true});
     else return res.status(404).json({success:false});
   } catch (err) {
-    
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`})
   }
 }

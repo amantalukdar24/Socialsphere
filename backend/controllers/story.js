@@ -37,6 +37,7 @@ const postStory=async (req,res)=>{
         return res.status(415).json({success:false,mssg:`${file.originalname}:File Unsupported`});
     }
     } catch (err) {
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 };
@@ -47,6 +48,7 @@ const isYourStoryAvailable=async (req,res)=>{
         if(result) return res.status(200).json({success:true,userId});
         else return res.status(200).json({success:false});
     } catch (err) {
+        console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 } 
@@ -73,7 +75,7 @@ const isYourFollowingUsersAvailable=async (req,res)=>{
       
         
     } catch (err) {
-        
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }
@@ -84,7 +86,7 @@ const getStory=async (req,res)=>{
          if(story.length>0) return res.status(200).json({success:true,story});
          else return res.status(404).json({success:false,mssg:"No Story Available"});
     } catch (err) {
-        
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }
@@ -101,7 +103,7 @@ const deleteStory=async (req,res)=>{
        else return res.status(404).json({success:false,mssg:"Something went wrong"});
     }
     catch(err){
-        
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:"Internal Server Error"});
     }
 }

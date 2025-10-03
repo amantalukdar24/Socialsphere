@@ -17,7 +17,7 @@ async function ValidateComment(req,res,next){
      return res.status(400).json({success:false,mssg:"Comment cannot be post.Comment contain offensive comments"});    
         
     } catch (err) {
-        
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:"Internal Server Down"});
     }
 }

@@ -55,6 +55,7 @@ function userSchema(req,res,next){
          next();
     }
     catch(err){
+      console.log(`${err}`);
         return res.status(500).json({success:false,mssg:"Internal Server Error",token:null});
     }
 }
@@ -82,6 +83,7 @@ function passSchema(req,res,next){
          next();
   }
   catch(err){
+    console.log(`${err}`);
         return res.status(500).json({success:false,mssg:"Internal Server Error"});
   }
 }
@@ -110,6 +112,7 @@ function usernameSchema(req,res,next){
          next();
 
   } catch (err) {
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:"Internal Server Error"});
   }
 }

@@ -42,7 +42,7 @@ const getMyFollowingUsers=async (req,res)=>{
        else return res.status(404).json({success:false});
         
     } catch (err) {
-        
+        console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }
@@ -82,7 +82,7 @@ const saveMessage=async (req,res)=>{
         else return res.status(400).json({success:false});
         
     } catch (err) {
-       
+       console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`Internal Server Error`})
     }
 }
@@ -109,6 +109,7 @@ const getMessages=async (req,res)=>{
         if(messages.length>0) return res.status(200).json({success:true,messages});
         else return res.status(404).json({success:false});
     } catch (err) {
+        console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }
@@ -138,6 +139,7 @@ const getRecentChats=async (req,res)=>{
        else return res.status(404).json({success:false});
         
     } catch (err) {
+        console.log(`${err}`);
       return res.status(500).json({success:false,mssg:`Internal Server Error`})  
     }
 }
@@ -162,7 +164,7 @@ const deleteTextMsg=async (req,res)=>{
         if(result) return res.status(200).json({success:true});
         else return res.status(404).json({success:false});
     } catch (err) {
-        
+        console.log(`${err}`);
    return res.status(500).json({success:false,mssg:`Internal Server Error`})  
     }
 }
@@ -174,6 +176,7 @@ const createTokenForvideoCall=async (req,res)=>{
   if(token) return res.status(201).json({success:true,token,apiKey,userId:req.user._id});
   else return res.status(400).json({success:false});
     } catch (err) {
+        console.log(`${err}`);
            return res.status(500).json({success:false,mssg:`Internal Server Error`}) 
     }
 }

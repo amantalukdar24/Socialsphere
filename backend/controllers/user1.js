@@ -23,6 +23,7 @@ const changeUsername=async (req,res)=>{
         else  return res.status(400).json({success:false,mssg:"Something Went Wrong"});
 
     } catch (err) {
+        console.log(`${err}`);
         return res.status(500).json("Internal Server Error");
     }
 }
@@ -38,6 +39,7 @@ const changePassword=async (req,res)=>{
         if(result) return res.status(200).json({success:true,mssg:"Password Updated"});
         else return res.status(400).json({success:false,mssg:"Something Went Wrong"});
     } catch (err) {
+        console.log(`${err}`);
         return res.status(500).json("Internal Server Error");
     }
 }

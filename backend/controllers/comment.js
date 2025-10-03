@@ -13,7 +13,7 @@ const postComment=async (req,res)=>{
     else return res.status(404).json({success:false});
     }
     catch(err){
-        
+        console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`${err}`});
     }
 }
@@ -25,6 +25,7 @@ const getallcomment=async (req,res)=>{
         if(comments.length>0) return res.status(200).json({success:true,comments});
         else return res.status(200).json({success:false});
     } catch (err) {
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`${err}`});
     }
 }
@@ -35,6 +36,7 @@ const deleteComment=async (req,res)=>{
         if(result) return res.status(200).json({success:true})
         else return res.status(500).json({success:false,mssg:"Something Went Wrong"});
     } catch (err) {
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:`Internal Server Error`});
     }
 }

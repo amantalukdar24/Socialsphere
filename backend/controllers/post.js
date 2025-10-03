@@ -61,7 +61,7 @@ const uploadPost = async (req, res) => {
         .json({ success: false, mssg: "Internal Server Error" });
     }
   } catch (err) {
-   
+   console.log(`${err}`);
 
     return res.status(500).json({ success: false, mssg: err.message });
   }
@@ -80,6 +80,7 @@ const getuserposts=async (req,res)=>{
     }
   }
   catch(err){
+    console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`${err}`});
   }
 }
@@ -90,6 +91,7 @@ const getPrevcaption=async (req,res)=>{
     if(result) return res.status(200).json({success:true,caption:result.caption});
     else return res.status(404).json({success:false})
   } catch (err) {
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`${err}`});
   }
 }
@@ -101,6 +103,7 @@ const editCaption=async (req,res)=>{
     if(result) return res.status(200).json({success:true,mssg:"Caption Updated"});
     else return res.status(404).json({success:false,mssg:"Something Went Wrong"})
   } catch (err) {
+    console.log(`${err}`);
       return res.status(500).json({success:false,mssg:`Internal Server Error`});
   }
 }
@@ -124,7 +127,7 @@ const deletePost=async (req,res)=>{
     else return res.status(404).json({success:false,mssg:"Something Went Wrong"})
     
   } catch (err) {
-    
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:`Internal Server Error`});
   }
 }
@@ -141,6 +144,7 @@ const getAllposts=async (req,res)=>{
     }
   }
   catch(err){
+    console.log(`${err}`);
          return res.status(500).json({success:false,mssg:`Internal Server Error`});
   }
 }
@@ -152,7 +156,7 @@ const particularPost=async (req,res)=>{
     else return res.status(404).json({success:false,mssg:"Post Not Found"});
     
   } catch (err) {
-    
+    console.log(`${err}`);
     return res.status(500).json({success:false,mssg:"Internal Server Error"});
   }
 }
@@ -172,7 +176,7 @@ const checkTextisclean=async (req,res)=>{
      return res.status(400).json({success:false,mssg:"Post cannot be uploaded.Caption contain offensive comments"});    
         
     } catch (err) {
-        
+        console.log(`${err}`);
         return res.status(500).json({success:false,mssg:"Internal Server Down"});
     }
 }
