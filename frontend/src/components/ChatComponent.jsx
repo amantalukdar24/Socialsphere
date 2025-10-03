@@ -226,7 +226,7 @@ const handelJoinVideoCall=()=>{
           <button onClick={()=>{handelJoinVideoCall()}}><img src="/Images/videocall.png" className=' w-[40px] h-[40px] sm:w-[50px] sm:h-[50px]'/></button>
         </div>
        </div>
-        <div ref={chatBoxRef} className=' flex flex-col   w-full gap-1 h-[76vh] sm:h-[73vh] md:h-[70vh] xl:h-[70vh] bg-gray-700 rounded-2xl overflow-auto scrollbar-hide '>
+        <div ref={chatBoxRef} className=' flex flex-col   w-full gap-1 h-[70vh] sm:h-[73vh] md:h-[70vh] xl:h-[70vh] bg-gray-700 rounded-2xl overflow-auto scrollbar-hide '>
           {
             chat.map((ele)=>(
              <div className='flex flex-col w-full items-center'>
