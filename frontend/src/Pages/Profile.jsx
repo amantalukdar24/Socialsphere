@@ -408,8 +408,8 @@ const deletePost=async (postId)=>{
              <div key={ele._id}  className=' flex flex-col lg:flex-row border-2 border-r-0 rounded-2xl ' >
             <div   className='flex flex-col w-[80vw] sm:w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[50vw] 2xl:w-[60vw] border-r-2   rounded-2xl' >
                <div className='flex flex-row justify-between items-center border-b-4 border-b-orange-500'>
-               <div className='flex flex-row gap-5 items-center'>   
-                 <img src={ele.userId.profile_photo} alt="Failed to Load" className='object-fit w-[50px] h-[50px] rounded' />
+               <div className='flex flex-row gap-5 items-center rounded-full'>   
+                 <img src={ele.userId.profile_photo} alt="Failed to Load" className='object-fit w-[50px] h-[50px] rounded-full' />
          <div className='flex flex-col sm:flex-row  sm:gap-5 items-start sm:items-center'>       <h1 className='text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] font-[Arial]'>{ele.userId.username}</h1>
                 <h4 className='text-sm sm:text-md font-sans '>{setDateInString(ele.createdAt)}</h4>
               </div>
