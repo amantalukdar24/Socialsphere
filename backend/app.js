@@ -24,25 +24,7 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(cors());
 
 app.use(express.urlencoded({extended:true}));
-async function serverRefresh(){
-    try{
-    const refresh=await fetch(`https://socialsphere-backend-i5l1.onrender.com/`,{
-        method:"GET",
-        headers:{
-            "Content-Type":"application/json"
-        }
-    });
- if(refresh.ok){
-            const data = await refresh.json();
-            if(data.success) console.log("Server Refresh Successful");
-        } else {
-            console.log("Server Refresh returned non-200 status");
-        }
-    } catch(err) {
-        console.log("Server Refresh failed:", err.message);
-    }
-}
-setInterval(serverRefresh,30000);
+
 
 app.get("/",(req,res)=>{  return res.status(200).json({success:true});});
 app.use('/user',userRouter); 
