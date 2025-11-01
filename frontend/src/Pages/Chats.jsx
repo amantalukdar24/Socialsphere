@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ChatComponent from '../components/ChatComponent';
 import socket from "../socket.js"
 function Chats() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
   const [input,setInput]=useState("");
   const [input1,setInput1]=useState("");
   const Navigate=useNavigate();

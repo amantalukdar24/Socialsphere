@@ -2,7 +2,7 @@ import React from 'react'
 import {useState,useCallback,useRef} from "react"
 import {toast} from "react-toastify"
 function Create() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
    const [caption,setCaption]=useState("");
    const [uploading,setUploading]=useState(false);
    const [media,setMedia]=useState([]);

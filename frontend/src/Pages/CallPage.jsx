@@ -20,7 +20,7 @@ import {toast} from "react-toastify";
 
 
 const CallPage = () => {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
   const { id: callId } = useParams();
   const [client, setClient] = useState(null);
   const [call, setCall] = useState(null);

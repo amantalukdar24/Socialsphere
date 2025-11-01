@@ -3,7 +3,7 @@ import debounce from "lodash.debounce"
 import {toast} from "react-toastify"
 import { useNavigate } from 'react-router-dom';
 function Search() {
-  const url="https://socialsphere-backend-i5l1.onrender.com"
+  const url="https://socialsphere-backend-dih0.onrender.com"
   const [searchUsername,setSearchUsername]=useState("");
   const [users,setUsers]=useState([]);
  const Navigate=useNavigate();

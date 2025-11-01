@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import socket from '../socket';
 import {FacebookShareButton,WhatsappShareButton,TwitterShareButton,TelegramShareButton,TelegramIcon,FacebookIcon,WhatsappIcon,TwitterIcon} from "react-share"
 function Home() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
  
   const [post,setPost]=useState([]);
   const [allPostInteraction,setAllPostInteraction]=useState({})

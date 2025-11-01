@@ -3,7 +3,7 @@ import { NavLink,useNavigate } from 'react-router-dom'
 import {toast} from "react-toastify"
 function Resetpassword() {
   const Navigate=useNavigate();
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
   const [isSubmit,setIsSubmit]=useState(false);
   const [inputs,setInputs]=useState({
     email:"",

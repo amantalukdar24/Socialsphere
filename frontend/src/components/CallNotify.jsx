@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import socket from '../socket';
 import { useNavigate } from 'react-router-dom';
 function CallNotify({setActiveCall,callDetails}) {
-    const url="https://socialsphere-backend-i5l1.onrender.com";
+    const url="https://socialsphere-backend-dih0.onrender.com";
     const Navigate=useNavigate();
      const [timeLeft, setTimeLeft] = useState(30);
      

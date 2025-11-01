@@ -3,7 +3,7 @@ import socket from "../socket.js"
 import {toast} from "react-toastify"
 import { useNavigate,NavLink } from 'react-router-dom';
 function ChatComponent({senderId,setActiveChatPage,yourUser}) {
-    const url="https://socialsphere-backend-i5l1.onrender.com";
+    const url="https://socialsphere-backend-dih0.onrender.com";
     const chatBoxRef=useRef(null);
     const inputRef=useRef(null);
   const [message,setMessage]=useState("");

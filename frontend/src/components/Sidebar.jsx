@@ -2,7 +2,7 @@ import React,{useEffect,useCallback} from 'react'
 import { useState } from 'react'
 import { NavLink,useLocation } from 'react-router-dom'
 function Sidebar() {
-   const url="https://socialsphere-backend-i5l1.onrender.com";
+   const url="https://socialsphere-backend-dih0.onrender.com";
    const Location=useLocation();
    const [hideSidebar,setHideSidebar]=useState(false);
    useEffect(()=>{

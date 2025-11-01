@@ -4,7 +4,7 @@ import Stories from 'react-insta-stories'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 function StoryComponent() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
    const params=useParams();
    const Navigate=useNavigate();
   const [stories,setStories]=useState([]);

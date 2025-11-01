@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
 function Story() {
-    const url="https://socialsphere-backend-i5l1.onrender.com";
+    const url="https://socialsphere-backend-dih0.onrender.com";
     const [uploadStory,setUploadStory]=useState(false);
     const inputRef=useRef(null);
     const [media,setMedia]=useState({});

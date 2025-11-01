@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import {useDispatch} from "react-redux"
 import { login } from '../features/authSlice';
 function Register() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
   const Dispatch=useDispatch();
   const [isSubmit,setIsSubmit]=useState(false);
   const [inputs,setInputs]=useState({

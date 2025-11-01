@@ -4,7 +4,7 @@ import { logout } from '../features/authSlice';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 function Settings() {
-  const url="https://socialsphere-backend-i5l1.onrender.com";
+  const url="https://socialsphere-backend-dih0.onrender.com";
   const Navigate=useNavigate();
   const [activateAccountCenter,setActivateAccountCenter]=useState(false);
   const [changeUsername,setchangeUsername]=useState(false);

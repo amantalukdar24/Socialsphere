@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../socket';
 function Notify() {
-    const url="https://socialsphere-backend-i5l1.onrender.com";
+    const url="https://socialsphere-backend-dih0.onrender.com";
     const Navigate=useNavigate();
     const [allNotify,setAllNotify]=useState([]);
     useEffect(()=>{
